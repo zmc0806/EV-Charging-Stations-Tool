@@ -3,9 +3,10 @@ folium==0.14.0
 streamlit-folium==0.13.0
 pandas>=2.0.0
 geopandas>=0.13.0
-numpy>=1.19.3,<2.0.0
+numpy<2.0.0,>=1.19.3
 matplotlib==3.7.1
 seaborn==0.12.2
 scikit-learn==1.2.2
 branca==0.6.0
-shapely==2.0.1
+shapely==2.0.1; platform_machine != "x86_64" or platform_system != "Linux"
+shapely==2.0.1; platform_machine == "x86_64" and platform_system == "Linux" and python_implementation != "PyPy"
