@@ -729,31 +729,37 @@ try:
     num_recommendations = st.sidebar.slider(
         "Number of Recommendations:", 
         min_value=1, 
-        max_value=20, 
-        value=5
+        max_value=10, 
+        value=2
     )
     
-    # Map focus options
-    st.sidebar.header("Map Focus Options")
+    # # Map focus options
+    # st.sidebar.header("Map Focus Options")
     
-    # Option to focus map on selected area only
-    focus_on_selection = st.sidebar.checkbox("Focus map on selected area only", value=True)
+    # # Option to focus map on selected area only
+    # focus_on_selection = st.sidebar.checkbox("Focus map on selected area only", value=True)
     
-    # Additional buffer around focus area (in degrees)
-    if focus_on_selection:
-        focus_buffer = st.sidebar.slider(
-            "Buffer around selected area (degrees):", 
-            min_value=0.01, 
-            max_value=0.2, 
-            value=0.05,
-            step=0.01,
-            help="Larger value shows more surrounding area"
-        )
+    # # Additional buffer around focus area (in degrees)
+    # if focus_on_selection:
+    #     focus_buffer = st.sidebar.slider(
+    #         "Buffer around selected area (degrees):", 
+    #         min_value=0.01, 
+    #         max_value=0.2, 
+    #         value=0.05,
+    #         step=0.01,
+    #         help="Larger value shows more surrounding area"
+    #     )
     
-    # Map size controls
-    st.sidebar.header("Map Display Options")
-    map_width = st.sidebar.slider("Map Width:", 600, 1200, 800)
-    map_height = st.sidebar.slider("Map Height:", 300, 800, 500)
+    # # Map size controls
+    # st.sidebar.header("Map Display Options")
+    # map_width = st.sidebar.slider("Map Width:", 600, 1200, 800)
+    # map_height = st.sidebar.slider("Map Height:", 300, 800, 500)
+
+
+    focus_on_selection = True
+    focus_buffer = 0.05
+    map_width = 800
+    map_height = 500
     
     # Show advanced ML options
     st.sidebar.header("Machine Learning Options")
