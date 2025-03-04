@@ -336,7 +336,7 @@ def generate_ml_explanations(recommendations_df, ml_analysis):
     # 构建解释文本
     explanation_html = f"""
     <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
-        <h4 style="margin-top: 0; color: #333;">Machine Learning Analysis of Recommendations</h4>
+        <h4 style="margin-top: 0; color: #333;">Analysis of Recommendations</h4>
         
         <p><strong>Overview:</strong> Our machine learning analysis has evaluated {len(recommendations_df)} locations 
         for EV charging station placement potential. Of these, <span style="color: green; font-weight: bold;">
