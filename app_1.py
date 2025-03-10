@@ -104,7 +104,7 @@ def load_data():
 def load_supporting_data():
     """Load zoning data, parking data, and other supporting datasets"""
     # Load zoning data
-    zoning_data = gpd.read_file("shapefiles/zoning_datasd.geojson")
+    zoning_data = gpd.read_file("zoning_datasd.geojson")
     zoning_data = zoning_data.to_crs(epsg=4326)
     
     # Process zone_type if not already present
