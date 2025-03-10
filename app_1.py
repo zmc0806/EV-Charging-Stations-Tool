@@ -522,6 +522,16 @@ def get_recommendation_status(demand_score, thresholds, cluster_desc=None):
 # Function to create the combined map
 def create_combined_map(zoning_data, public_parking_gdf, lots, merged_features):
     """Create a combined map with all layers"""
+
+    def convert_timestamps(gdf):
+        for col in gdf.columns:
+            if gdf[col].dtype == 'datetime64[ns]' or hasattr(gdf[col], 'dt'):
+                gdf[col] = gdf[col].astype(str)
+        return gdf
+    zoning_data = convert_timestamps(zoning_data)
+    public_parking_gdf = convert_timestamps(public_parking_gdf)
+    lots = convert_timestamps(lots)
+    merged_features = convert_timestamps(merged_features)
     # Create a base map centered on San Diego
     combined_map = folium.Map(location=[32.7157, -117.1611], zoom_start=12, tiles="cartodbpositron")
     
