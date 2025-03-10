@@ -2,7 +2,8 @@
 
 A machine learning-powered application for identifying optimal locations for electric vehicle charging stations through geospatial analysis and multi-factor demand scoring.
 
-![EV Charging Station Map](https://via.placeholder.com/800x400?text=EV+Charging+Station+Demand+Map)
+![EV Charging Station Map](images/app.png)
+
 
 ## Overview
 
