@@ -1029,7 +1029,7 @@ try:
                     tab1_sub, tab2_sub = st.tabs(["Summary View", "Detailed Data"])
                     with tab1_sub:
                         st.subheader("Key Metrics for Recommended Locations")
-                        summary_cols = ['osmid', 'zip', 'new_demand_score','distance_score']
+                        summary_cols = ['osmid', 'zip', 'new_demand_score','distance_score','income_score','population_score']
                         if 'recommendation_status' in top_recommendations.columns:
                             summary_cols.append('recommendation_status')
                         summary_cols.extend(['distance_to_nearest_charger', 'chargers_in_radius', 'traffic'])
