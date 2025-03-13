@@ -826,7 +826,10 @@ try:
                     for feat, w in chosen_weights.items():
                         if feat in merged_features.columns:
                             merged_features['new_demand_score'] += merged_features[feat].fillna(0) * w
-                    
+                    filtered_data['new_demand_score'] = 0.0
+                    for feat, w in chosen_weights.items():
+                        if feat in filtered_data.columns:
+                            filtered_data['new_demand_score'] += filtered_data[feat].fillna(0) * w
                     # Sort recommendations using new_demand_score
                     top_recommendations = filtered_data.sort_values('new_demand_score', ascending=False).head(num_recommendations)
                     
