@@ -90,6 +90,13 @@ def map_zoning_category(zone_code):
                 return category
     return 'Other'
 
+def convert_timestamps(df):
+    """将DataFrame中的时间戳列转换为字符串以便JSON序列化"""
+    for col in df.columns:
+        if pd.api.types.is_datetime64_any_dtype(df[col]):
+            df[col] = df[col].astype(str)
+    return df
+
 @st.cache_data
 def load_data():
     """
@@ -100,7 +107,8 @@ def load_data():
     merged_features['geometry'] = gpd.GeoSeries.from_wkt(merged_features['geometry'])
     merged_features = gpd.GeoDataFrame(merged_features, geometry='geometry')
     merged_features.set_crs(epsg=4326, inplace=True)
-    
+    merged_features = convert_timestamps(merged_features)
+
     # Calculate zoning suitability score
     zoning_suitability = {
         'Commercial': 1.0, 
@@ -151,6 +159,9 @@ def load_supporting_data():
     public_parking_gdf = public_parking_gdf.to_crs(epsg=4326)
     lots = gpd.read_file("lots.geojson")
     lots = lots.to_crs(epsg=4326)
+    zoning_data = convert_timestamps(zoning_data)
+    public_parking_gdf = convert_timestamps(public_parking_gdf)
+    lots = convert_timestamps(lots)
     return zoning_data, public_parking_gdf, lots
 
 @st.cache_data
